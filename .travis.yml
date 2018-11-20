@@ -1,0 +1,7 @@
+language: nix
+
+install:
+  - nix-env -f nix/nixpkgs -iA gnumake findutils gnused
+
+script:
+  - make test

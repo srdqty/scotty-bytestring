@@ -1,0 +1,67 @@
+-- This file has been generated from package.yaml by hpack version 0.28.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b3c4af97dcd0e0cfb2a3865c47b8185438f694e5d5477be5b7c49509fc80c635
+
+name:           scotty-bytestring
+version:        0.1.0.0
+synopsis:       ByteString versions of some Scotty functions.
+description:    ByteString versions of some Scotty functions. The main purpose is to avoid re-decoding and/or re-encoding data when reading and setting headers. It's meant as an alternative for some of the functions that automatically decode to Text.
+category:       Web
+homepage:       https://github.com/srdqty/scotty-bytestring#readme
+bug-reports:    https://github.com/srdqty/scotty-bytestring/issues
+author:         Sofia Donataccio
+maintainer:     srdqty@gmail.com
+copyright:      Copyright (c) 2018 Sofia Donataccio
+license:        BSD3
+build-type:     Simple
+cabal-version:  >= 1.10
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/srdqty/scotty-bytestring
+
+library
+  exposed-modules:
+      Web.Scotty.ByteString
+  other-modules:
+      Paths_scotty_bytestring
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -O2
+  build-depends:
+      base >=4.7 && <5
+    , bytestring >=0.10.2 && <0.11
+    , case-insensitive >=1.0.0.1 && <1.3
+    , http-types >=0.8.2 && <0.13
+    , mtl >=2.1.2 && <2.3
+    , scotty >=0.11.2 && <0.12
+    , wai >=3.0.0 && <3.3
+  default-language: Haskell2010
+
+test-suite scotty-bytestring-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Web.Scotty.ByteStringSpec
+      Paths_scotty_bytestring
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -O2
+  build-depends:
+      base >=4.7 && <5
+    , bytestring >=0.10.2 && <0.11
+    , case-insensitive >=1.0.0.1 && <1.3
+    , hspec ==2.*
+    , hspec-wai >=0.6.3
+    , http-types >=0.8.2 && <0.13
+    , mtl >=2.1.2 && <2.3
+    , scotty >=0.11.2 && <0.12
+    , scotty-bytestring
+    , text >=0.11.3.1 && <1.3
+    , wai >=3.0.0 && <3.3
+  default-language: Haskell2010
